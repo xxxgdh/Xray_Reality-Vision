@@ -67,7 +67,7 @@ EOF
 if [ "$local_web" = "1" ]
 then
          mkdir /web
-         wget https://github.com/LSitao/vless_gRPC_nginx_tls/blob/main/web/game.tar.gz
+         wget https://raw.githubusercontent.com/LSitao/Trojan-gRPC-tls/main/web/game.tar.gz
          tar -zvxf game.tar.gz -C /web
 
 cat << EOF > /xray/config.json
