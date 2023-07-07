@@ -1,1 +1,47 @@
-#! /bin/bash
+#!/bin/bash
+
+clear
+echo "Vless-Reality+Vision"
+echo "遇到问题联系我:https://t.me/iu536"
+echo
+
+check=0
+while [ $check -ne 4 ]
+do 
+   echo -e "[1] 查看节点链接\n"
+   echo -e "[2] 更换端口\n"
+   echo -e "[3] 彻底删除\n"
+   echo -e "[4] 或 Ctrl+C 退出菜单\n"
+   read -p "请选择[1-4]:" check
+     if [ $check -eq 1 ]
+     then 
+          echo
+          cat /xray/example_node
+		  echo
+		  exit
+          
+
+     elif [ $check -eq 2 ]
+     then 
+	 	  clear
+          read -p "请输入新的端口号: " new_port
+          # 使用jq命令修改配置文件中的端口号
+          jq --arg new_port "$new_port" '.inbounds[0].port = $new_port' /xray/config.json > temp.json && mv temp.json /xray/config.json
+          systemctl restart xray
+          echo "端口号已成功更改为$new_port"
+          echo
+          exit
+
+     elif [ $check -eq 3 ]
+     then 
+          systemctl disable xray
+          systemctl stop xray
+          rm -rf /xray
+          rm /usr/bin/xray
+          systemctl disable nginx
+          systemctl stop nginx
+          rm -rf /usr/local/nginx
+          echo "已彻底删除！不留痕迹"
+          exit
+     fi
+done 
