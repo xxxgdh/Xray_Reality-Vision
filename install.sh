@@ -140,6 +140,8 @@ source ~/.bashrc
 acme.sh --set-default-ca --server letsencrypt
 acme.sh --issue -d $domain --standalone -k ec-256 --force
 acme.sh --installcert -d $domain --ecc  --key-file   /xray/tls/server.key   --fullchain-file /xray/tls/server.crt
+acme.sh --upgrade --auto-upgrade
+
 if `test -s /xray/tls/server.crt` 
   then 
         echo -e "证书申请成功!\n"
