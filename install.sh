@@ -324,6 +324,7 @@ ShortId: 1153456789abcdef (可不填；想自定义可以修改配置文件/xray
 SpiderX ：留空
 EOF
 echo $Privatekey > /xray/Privatekey
+apt install jq -y
 
 clear
 echo "安装完成！"
