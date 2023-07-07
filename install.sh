@@ -325,6 +325,9 @@ SpiderX ：留空
 EOF
 echo $Privatekey > /xray/Privatekey
 apt install jq -y
+curl  https://raw.githubusercontent.com/LSitao/Xray_Reality-Vision/main/iu_menu > /xray/iu.sh
+cp /xray/iu.sh /usr/bin/iu
+chmod 777 /usr/bin/iu
 
 clear
 echo "安装完成！"
