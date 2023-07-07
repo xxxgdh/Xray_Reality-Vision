@@ -17,13 +17,13 @@ do
      then 
           echo
           cat /xray/example_node
-		  echo
-		  exit
+    	  echo
+  	  exit
           
 
      elif [ $check -eq 2 ]
      then 
-	 	  clear
+	  clear
           read -p "请输入新的端口号: " new_port
           # 使用jq命令修改配置文件中的端口号
           jq --arg new_port "$new_port" '.inbounds[0].port = $new_port' /xray/config.json > temp.json && mv temp.json /xray/config.json
