@@ -344,4 +344,6 @@ echo "你也可以直接使用下面的示例链接"
 cat /xray/example_node
 echo
 echo
+echo "输入iu可调出菜单"
+echo
 echo "感谢使用"
