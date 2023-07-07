@@ -41,6 +41,7 @@ do
           systemctl disable nginx
           systemctl stop nginx
           rm -rf /usr/local/nginx
+          rm -rf /usr/bin/iu
           echo "已彻底删除！不留痕迹"
           exit
      fi
